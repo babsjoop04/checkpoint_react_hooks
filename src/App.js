@@ -112,7 +112,7 @@ const App = () => {
     if (tab[0].checked) {
 
       tab2 = deb.filter((element) => {
-        return element.props.title.toLowerCase() === titleOrRate.toLowerCase()
+        return element.props.title.toLowerCase().includes(titleOrRate.toLowerCase())
       })
 
       if (tab2.length !== 0)

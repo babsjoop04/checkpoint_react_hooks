@@ -18,7 +18,7 @@ const View = ({ movieList, Filter, displaystate, Show }) => {
             <div className="row">
                 <FormFilter Filter={Filter} />
                 <div className="col">
-                    <button><a href="#add">Go to add form</a></button>
+                    <button className="btn btn-info"><a href="#add">Go to add form</a></button>&nbsp;
                     <button className="btn btn-info" style={{ display: displaystate }} onClick={Show} id="buttonShow">Press here to show full movie list</button>
                 </div>
 
