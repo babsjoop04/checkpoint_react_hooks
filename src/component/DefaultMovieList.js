@@ -2,7 +2,7 @@ const DefaultMovieList = [
     {
         title: "Avengers",
         id: 1,
-        rate: 100,
+        rate: 94,
         posterUrl: "/AvengersPoster.jpg",
         description: "As the Avengers and their allies continued to protect the world from threats far too great for a single hero to combat, a new danger has come from outer space: Thanos. Despot feared throughout the universe, Thanos aims to collect the six Infinity Stones, some of the most powerful artifacts in the universe, and use them to impose his will on all of reality. Every fight the Avengers have had culminates in this battle."
     },
@@ -67,6 +67,68 @@ const DefaultMovieList = [
         rate: 84,
         posterUrl: "/lostPoster.jpg",
         description: "Reclusive author Loretta Sage writes about exotic locations in her adventure novels, which feature a handsome cover model named Alan. While on a promotional tour for her new book with Alan, Loretta gets kidnapped by an eccentric billionaire who is looking for the lost treasure of an ancient city. Determined to prove he can be a hero in real life and not just on the pages of his books, Alan sets out to rescue him."
+    }, {
+        title: "Black Panther: Wakanda Forever",
+        id: 11,
+        rate: 98,
+        posterUrl: "/wakandePoster.jpg",
+        description: "Queen Ramonda, Shuri, M'Baku, Okoye, and the Dora Milaje fight to protect their nation from intervening world powers in the wake of King T'Challa's death."
+    }, {
+
+        title: "Creed",
+        id: 12,
+        rate: 96,
+        posterUrl: "/creedPoster.jpg",
+        description: "After a few easy victories in the boxing ring, Adonis, son of the great champion Apollo Creed, is trying to carve out a place for himself among the professionals. He leaves Los Angeles and travels to Philadelphia to meet Rocky Balboa, an old rival and friend of his father."
+    }, {
+        title: "Black Panther",
+        id: 13,
+        rate: 98,
+        posterUrl: "/pantherPoster.jpg",
+        description: "After the events that unfolded in Captain America: Civil War, T'Challa returns home to take his place on the throne of Wakanda, a technologically advanced African nation, but when an old enemy resurfaces, T'Challa's courage is weakened. put to the test, both as a ruler and as a Black Panther. He finds himself drawn into a conflict that threatens not only the fate of Wakanda but that of the entire world."
+    }, {
+        title: "Imitation Game (The Imitation Game)",
+        id: 14,
+        rate: 97,
+        posterUrl: "/imitationPoster.jpg",
+        description: "In 1939, newly created British intelligence agency MI6 recruits Cambridge mathematics alumnus Alan Turing (Benedict Cumberbatch) to crack Nazi codes, including Enigma -- which cryptanalysts had thought unbreakable. Turing's team, including Joan Clarke (Keira Knightley), analyze Enigma messages while he builds a machine to decipher them. Turing and team finally succeed and become heroes, but in 1952, the quiet genius encounters disgrace when authorities reveal he is gay and send him to prison."
+    }, {
+        title: "Avengers : End Game",
+        id: 15,
+        rate: 95,
+        posterUrl: "/endgamePoster.jpg",
+        description: "The Titan Thanos, having managed to appropriate all six Infinity Stones and reunite them on the Golden Gauntlet, was able to achieve his goal of pulverizing half the population of the Universe. Five years later, Scott Lang, aka Ant-Man, manages to escape from the subatomic dimension where he was stuck. He offers the Avengers a solution to bring back to life all the missing beings, including their allies and teammates: recover the Infinity Stones in the past."
+
+    }, {
+        title: "Black Widow",
+        id: 16,
+        rate: 57,
+        posterUrl: "/blackPoster.jpg",
+        description: "When a dangerous plot linked to her past resurfaces, Natasha Romanoff, aka Black Widow, must face it."
+    }, {
+        title: "The batman",
+        id: 17,
+        rate: 90,
+        posterUrl: "/batmanPoster.jpg",
+        description: "When a killer preys on Gotham's elite through a series of sadistic schemes, a trail of cryptic clues sends Bruce Wayne aka Batman on an investigation into the underworld, where he encounters figures such as Selina Kyle aka Catwoman, Oswald Cobblepot aka the Penguin and mob boss Carmine Falcone."
+    }, {
+        title: "Escape Room 2",
+        id: 18,
+        rate: 97,
+        posterUrl: "/escapePoster.jpg",
+        description: "Since surviving the escape game organized by Minos Corporation, Zoey Davis has been haunted by the deaths of the four other participants and has only one goal: to get revenge on the company behind this deadly game. Accompanied by Ben Miller, the other survivor, she follows a clue that leads them to New York, where Minos' offices are supposed to be."
+    }, {
+        title: "The Adam Project",
+        id: 19,
+        rate: 94,
+        posterUrl: "/adamPoster.jpg",
+        description: "After crash landing in 2022, fighter pilot and time traveler Adam Reed teams up with a 12-year-old version of himself to save the future."
+    }, {
+        title: "The Tomorrow War",
+        id: 20,
+        rate: 93,
+        posterUrl: "/tomorrowPoster.png",
+        description: "The world is stunned when a group of travelers arrive from the future to deliver an urgent message: in 30 years, Humanity will lose a war against aliens. The only way to survive this alien attack is to transport soldiers and civilians from today's world to the future to fight against this invasion. A professor teams up with a brilliant scientist and her father to rewrite the future of the planet."
     }
 ]
 
