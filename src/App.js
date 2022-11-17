@@ -85,7 +85,7 @@ const App = () => {
     );
 
 
-    deb.push(list2);
+    deb = [...list1, ...list2];
 
     // update list for display
 
@@ -186,10 +186,6 @@ const App = () => {
 
 
           <FormAddMovie Add={Add} />
-
-
-
-
 
 
         </div>

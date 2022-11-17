@@ -1,5 +1,9 @@
 
 const FormFilter = ({ Filter }) => {
+
+
+
+
     return (
         <div className="" id="form2">
             <span>Choose your filter mode : </span>
