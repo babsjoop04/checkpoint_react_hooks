@@ -1,15 +1,14 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
-// import add form
+// import add and filter form
 import FormAddMovie from "./component/FormAddMovie";
+import FormFilter from "./component/FormFilter";
 
 //import component defining a movie as a map
 import MovieCard from "./component/MovieCard";
 
 
-//import of the place of viewing of the films
 
-import View from "./component/View";
 
 
 
@@ -22,31 +21,40 @@ import DefaultMovieList from "./component/DefaultMovieList";
 
 
 
-// create default movie map board
-
-let list1 = DefaultMovieList.map((element) => {
-  return (
-    <MovieCard
-      title={element.title}
-      description={element.description}
-      posterUrl={element.posterUrl}
-      rate={element.rate}
-    />
-  );
-});
-
-
-// creation and initialization table for movie display
-let deb = [...list1]
 
 
 
 // creation table for new film storage
+
 let list2 = [];
 
 
-
 const App = () => {
+
+
+  // create default movie map board
+
+
+  let list1 = useMemo(() => {
+    return DefaultMovieList.map((element) => {
+      return (
+        <MovieCard
+          title={element.title}
+          description={element.description}
+          posterUrl={element.posterUrl}
+          rate={element.rate}
+        />
+      );
+    })
+  }, []);
+
+
+  // creation and initialization table for movie display
+  let deb = useMemo(() => {
+    return [...list1, ...list2]
+  }, [list1])
+
+
 
 
   const [movie, addMovie] = useState(list1);
@@ -54,6 +62,16 @@ const App = () => {
   //creation of state variable for display or not of #buttonShow
 
   const [displaystate, setDisplay] = useState("none")
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -106,47 +124,49 @@ const App = () => {
 
     //filter mode recovery,
     // filtering and updating the list for display
+
     let tab = document.getElementsByClassName("filterModeinput")
 
 
     if (tab[0].checked) {
 
-      tab2 = deb.filter((element) => {
-        return element.props.title.toLowerCase().includes(titleOrRate.toLowerCase())
-      })
+      if (titleOrRate.length !== 0) {
 
-      if (tab2.length !== 0)
-        addMovie([...tab2])
-      else
-        addMovie(<h1> no movie corresponds to the search</h1>)
+        tab2 = deb.filter((element) => {
+          return element.props.title.toLowerCase().includes(titleOrRate.toLowerCase())
+        })
 
-
-      setDisplay("inline")
+        tab2.length !== 0 ? addMovie([...tab2]) : addMovie(<h1> no movie corresponds to the search</h1>)
 
 
 
+
+        setDisplay("inline")
+      } else
+        alert("Please give a movie title!!")
 
 
 
     } else if (tab[1].checked) {
 
-      console.log(deb);
+      if (titleOrRate !== "") {
 
-      tab2 = deb.filter((element) => {
-        return element.props.rate === parseInt(titleOrRate)
-      })
-
-
-      if (tab2.length !== 0)
-        addMovie([...tab2])
-      else
-        addMovie(<h1> no movie corresponds to the search</h1>)
+        if (parseInt(titleOrRate)) {
+          tab2 = deb.filter((element) => {
+            return element.props.rate === parseInt(titleOrRate)
+          })
 
 
 
-      setDisplay("inline")
+          tab2.length !== 0 ? addMovie([...tab2]) : addMovie(<h1> no movie corresponds to the search</h1>)
 
 
+
+
+          setDisplay("inline")
+        }
+      } else
+        alert("give a rating (number [0,100]) !!")
 
 
 
@@ -167,6 +187,7 @@ const App = () => {
 
     addMovie([...deb])
     setDisplay("none")
+
   }
 
 
@@ -177,19 +198,29 @@ const App = () => {
 
   return (
     <>
-      <View movieList={movie} Filter={Filter} Show={Show} displaystate={displaystate} />
+      <div className="container  text-center" id="contprinc2">
+        <h1>Welcome</h1>
 
-
-      <div className="container m text-center" id="contprinc1">
-
-        <div className="row p-5" id="add">
-
-
-          <FormAddMovie Add={Add} />
-
+        <div className="row">
+          <FormFilter Filter={Filter} />
+          <div className="">
+            <button className="btn btn-info" style={{ display: displaystate }} onClick={Show} id="buttonShow">Press here to show full movie list</button>
+          </div>
 
         </div>
+        <div className="row">
+          {movie}
+        </div>
 
+      </div>
+
+
+
+
+      <div className="container mt-5 text-center" id="contprinc1">
+        <div className="row" id="add">
+          <FormAddMovie Add={Add} />
+        </div>
       </div>
 
 

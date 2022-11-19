@@ -1,5 +1,6 @@
 
 const FormAddMovie = ({ Add }) => {
+
     return (
         <>
             {/* form add new movie */}

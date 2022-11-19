@@ -5,8 +5,8 @@ const FormFilter = ({ Filter }) => {
 
 
     return (
-        <div className="" id="form2">
-            <span>Choose your filter mode : </span>
+        <div className="col" id="form2">
+            <span className="h6">Choose your filter mode : </span>
 
             <span>MovieTitle </span>
             <input
@@ -26,17 +26,14 @@ const FormFilter = ({ Filter }) => {
             />
             <br />
 
-            <input
-                id="filterMode"
-                className="form-control"
-                type="text"
-                placeholder="Give a rating or movie title"
-                required
-            />
-            <br />
-            <button className="btn btn-primary" onClick={Filter}>
-                Filter
-            </button>
+            <div className="input-group mb-3 ">
+
+                <input type="text" id="filterMode" className="form-control" placeholder="Give a rating or movie title" name="filterMode" />
+                <button className="input-group-text btn btn-info" onClick={Filter}>Filter</button>
+            </div>
+
+
+
         </div>
     );
 };

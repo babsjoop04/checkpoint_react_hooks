@@ -1,6 +1,7 @@
 #contprinc2,
 #contprinc1 {
   /* border-radius: 35px; */
+  border: 15px ridge #0077b6;
   border-radius: 22px;
   background: linear-gradient(145deg, #d2dce3, #f9ffff);
   box-shadow: 8px 8px 16px #c8d2d9, -8px -8px 16px #ffffff;
@@ -8,4 +9,8 @@
 
 #root {
   background-color: #415a77;
+  font-family: "Calibri", Courier, monospace;
+}
+#form1 > label {
+  font-size: large;
 }
