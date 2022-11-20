@@ -1,5 +1,5 @@
 
-
+import PropTypes from "prop-types";
 
 const MovieCard = ({ title, description, posterUrl, rate }) => {
 
@@ -45,6 +45,17 @@ const MovieCard = ({ title, description, posterUrl, rate }) => {
         </div>
     );
 };
+
+
+MovieCard.propTypes = {
+    title: PropTypes.string,
+    posterUrl: PropTypes.string,
+    rate: PropTypes.number,
+    description: PropTypes.string
+
+
+
+}
 
 
 
