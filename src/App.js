@@ -50,14 +50,13 @@ const App = () => {
 
 
   // creation and initialization table for movie display
-  let deb = useMemo(() => {
-    return [...list1, ...list2]
-  }, [list1])
+  let deb = [...list1, ...list2]
 
 
 
 
-  const [movie, addMovie] = useState(list1);
+
+  const [movie, addMovie] = useState(deb);
 
   //creation of state variable for display or not of #buttonShow
 
@@ -86,7 +85,7 @@ const App = () => {
 
     const posterUrl = document.getElementById("posterUrl").value;
 
-    const rate = document.getElementById("rate").value;
+    const rate = parseInt(document.getElementById("rate").value);
 
     const description = document.getElementById("description").value;
 
@@ -132,9 +131,10 @@ const App = () => {
 
       if (titleOrRate.length !== 0) {
 
-        tab2 = deb.filter((element) => {
+        tab2 = movie.filter((element) => {
           return element.props.title.toLowerCase().includes(titleOrRate.toLowerCase())
         })
+        console.log(tab2);
 
         tab2.length !== 0 ? addMovie([...tab2]) : addMovie(<h1> no movie corresponds to the search</h1>)
 
@@ -152,9 +152,14 @@ const App = () => {
       if (titleOrRate !== "") {
 
         if (parseInt(titleOrRate)) {
-          tab2 = deb.filter((element) => {
+          tab2 = movie.filter((element) => {
             return element.props.rate === parseInt(titleOrRate)
           })
+
+
+          console.log(titleOrRate)
+          console.log(tab2);
+
 
 
 
