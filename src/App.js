@@ -134,7 +134,6 @@ const App = () => {
         tab2 = movie.filter((element) => {
           return element.props.title.toLowerCase().includes(titleOrRate.toLowerCase())
         })
-        console.log(tab2);
 
         tab2.length !== 0 ? addMovie([...tab2]) : addMovie(<h1> no movie corresponds to the search</h1>)
 
@@ -157,8 +156,6 @@ const App = () => {
           })
 
 
-          console.log(titleOrRate)
-          console.log(tab2);
 
 
 
