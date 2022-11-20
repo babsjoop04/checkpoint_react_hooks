@@ -24,7 +24,7 @@ import DefaultMovieList from "./component/DefaultMovieList";
 
 
 
-// creation table for new film storage
+// creation table for new movie storage
 
 let list2 = [];
 
@@ -49,14 +49,28 @@ const App = () => {
   }, []);
 
 
-  // creation and initialization table for movie display
-  let deb = [...list1, ...list2]
+  // creation and initialization table for movie
+  // let deb = [...list1]
+
+
+  //and state variable for display it
+
+
+  const [movie, addMovie] = useState([...list1]);
+
+
+
+  // definition of state variable used 
+  // to display a message 
+
+  const [message, setMessage] = useState("Number of movies")
+
+  // and to count the number of films
+  const [counter, setCounter] = useState([...list1].length)
 
 
 
 
-
-  const [movie, addMovie] = useState(deb);
 
   //creation of state variable for display or not of #buttonShow
 
@@ -102,11 +116,13 @@ const App = () => {
     );
 
 
-    deb = [...list1, ...list2];
+    // deb = ;
 
     // update list for display
 
-    addMovie([...deb]);
+    addMovie([...list1, ...list2]);
+
+    setCounter([...list1, ...list2].length)
   };
 
 
@@ -135,14 +151,25 @@ const App = () => {
           return element.props.title.toLowerCase().includes(titleOrRate.toLowerCase())
         })
 
-        tab2.length !== 0 ? addMovie([...tab2]) : addMovie(<h1> no movie corresponds to the search</h1>)
 
+
+
+
+        addMovie([...tab2])
+
+
+
+
+        setMessage("movies found by filtering")
+        setCounter(tab2.length)
 
 
 
         setDisplay("inline")
-      } else
+
+      } else {
         alert("Please give a movie title!!")
+      }
 
 
 
@@ -159,8 +186,19 @@ const App = () => {
 
 
 
+          addMovie([...tab2])
 
-          tab2.length !== 0 ? addMovie([...tab2]) : addMovie(<h1> no movie corresponds to the search</h1>)
+          setMessage("movies found by filtering")
+          setCounter(tab2.length)
+
+
+
+
+
+
+
+
+
 
 
 
@@ -168,12 +206,13 @@ const App = () => {
           setDisplay("inline")
         }
       } else
-        alert("give a rating (number [0,100]) !!")
+        alert("Please give a rating (number [0,100]) !!")
 
 
 
 
-    }
+    } else
+      alert("Please select a filter mode !!!")
 
 
 
@@ -187,8 +226,12 @@ const App = () => {
   const Show = () => {
 
 
-    addMovie([...deb])
+    addMovie([...list1, ...list2])
     setDisplay("none")
+    setMessage("Number of movies")
+    setCounter([...list1, ...list2].length)
+
+
 
   }
 
@@ -211,6 +254,11 @@ const App = () => {
 
         </div>
         <div className="row">
+          <h1>{message} : {counter}</h1>
+
+        </div>
+        <div className="row">
+
           {movie}
         </div>
 
