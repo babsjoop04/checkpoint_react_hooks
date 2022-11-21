@@ -255,10 +255,11 @@ const App = () => {
           </div>
 
         </div>
-        <div className="row">
-          <h1>{message} : {counter}</h1>
+        <br />
+        {/* <div className="row"> */}
+        <p className="text-bg-secondary">{message} : {counter}</p>
 
-        </div>
+        {/* </div> */}
         <div className="row">
 
           {movie}
