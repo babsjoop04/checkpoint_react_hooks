@@ -50,7 +50,6 @@ const App = () => {
 
 
   // creation and initialization table for movie
-  // let deb = [...list1]
 
 
   //and state variable for display it
@@ -116,11 +115,12 @@ const App = () => {
     );
 
 
-    // deb = ;
 
     // update list for display
 
     addMovie([...list1, ...list2]);
+
+    //update the counter of movie
 
     setCounter([...list1, ...list2].length)
   };
@@ -133,6 +133,8 @@ const App = () => {
 
     //get filter value for list
     let titleOrRate = document.getElementById("filterMode").value
+
+    //creation of a table to store the filtered list
 
     let tab2 = []
 
@@ -153,12 +155,13 @@ const App = () => {
 
 
 
-
+        // display of the filtered list
 
         addMovie([...tab2])
 
 
 
+        //update message and counter
 
         setMessage("movies found by filtering")
         setCounter(tab2.length)
@@ -167,9 +170,9 @@ const App = () => {
 
         setDisplay("inline")
 
-      } else {
+      } else
         alert("Please give a movie title!!")
-      }
+
 
 
 
@@ -190,15 +193,6 @@ const App = () => {
 
           setMessage("movies found by filtering")
           setCounter(tab2.length)
-
-
-
-
-
-
-
-
-
 
 
 
@@ -229,8 +223,11 @@ const App = () => {
 
 
     addMovie([...list1, ...list2])
+
     setDisplay("none")
+
     setMessage("Number of movies")
+
     setCounter([...list1, ...list2].length)
 
 
