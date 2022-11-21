@@ -147,7 +147,7 @@ const App = () => {
 
       if (titleOrRate.length !== 0) {
 
-        tab2 = movie.filter((element) => {
+        tab2 = [...list1, ...list2].filter((element) => {
           return element.props.title.toLowerCase().includes(titleOrRate.toLowerCase())
         })
 
@@ -177,8 +177,8 @@ const App = () => {
 
       if (titleOrRate !== "") {
 
-        if (parseInt(titleOrRate)) {
-          tab2 = movie.filter((element) => {
+        if (parseInt(titleOrRate) >= 0 && parseInt(titleOrRate) <= 100) {
+          tab2 = [...list1, ...list2].filter((element) => {
             return element.props.rate === parseInt(titleOrRate)
           })
 
@@ -205,6 +205,8 @@ const App = () => {
 
           setDisplay("inline")
         }
+        else
+          alert("The rating must de between 0 and 100")
       } else
         alert("Please give a rating (number [0,100]) !!")
 
