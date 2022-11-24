@@ -159,6 +159,10 @@ const App = () => {
 
         addMovie([...tab2])
 
+        //Hello
+
+        //hello2
+
 
 
         //update message and counter
