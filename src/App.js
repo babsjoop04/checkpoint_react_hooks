@@ -40,6 +40,7 @@ const App = () => {
       return (
         <MovieCard
           title={element.title}
+          id={element.id}
           description={element.description}
           posterUrl={element.posterUrl}
           rate={element.rate}
@@ -101,6 +102,7 @@ const App = () => {
     const rate = parseInt(document.getElementById("rate").value);
 
     const description = document.getElementById("description").value;
+
 
 
 
@@ -246,7 +248,7 @@ const App = () => {
 
   return (
     <>
-      <div className="container  text-center" id="contprinc2">
+      <div className="container  text-center" id="contprinc1">
         <h1>Welcome</h1>
 
         <div className="row">
@@ -271,7 +273,7 @@ const App = () => {
 
 
 
-      <div className="container mt-5 text-center" id="contprinc1">
+      <div className="container mt-5 text-center" id="contprinc2">
         <div className="row" id="add">
           <FormAddMovie Add={Add} />
         </div>

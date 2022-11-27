@@ -1,13 +1,13 @@
 
 import PropTypes from "prop-types";
 
-const MovieCard = ({ title, description, posterUrl, rate }) => {
+const MovieCard = ({ title, id, description, posterUrl, rate }) => {
 
 
 
 
     return (
-        <div className="col-3" >
+        <div className="col-3" id={id}>
             <div className="princ1">
 
                 <div className="text-center" id="princ2">
@@ -28,11 +28,11 @@ const MovieCard = ({ title, description, posterUrl, rate }) => {
                     </div>
                     <div className="row">
                         <div className="col">
-                            <details>
+                            {/* <details>
                                 <summary className="h2">Description</summary>
 
                                 <span>{description}</span>
-                            </details>
+                            </details> */}
 
                         </div>
 
