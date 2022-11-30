@@ -7,18 +7,11 @@ import DesciptionTrailerShow from "./component/DesciptionTrailerShow";
 const App = () => {
 
 
-
-
-
-
-
-
-
   return (
     <>
       <Link to="/">Home page</Link><br />
       <Link to="/show/">Movies view and filter page</Link><br />
-      {/* <Link to="/show/movie1">Movie#1</Link> */}
+      <Link to="/show/movie1">Movie#1</Link>
 
 
 
@@ -32,17 +25,10 @@ const App = () => {
         </Route>
 
 
-        {/* <Route
+        <Route
           path="/show/movie:id"
-
-
-          element={<DesciptionTrailerShow
-            posterUrl="/AvengersPoster.jpg"
-            trailerUrl="https://youtu.be/6ZfuNTqbHE8"
-            description="dekedked"
-          />}
-
-        /> */}
+          element={<DesciptionTrailerShow />}
+        />
 
 
 

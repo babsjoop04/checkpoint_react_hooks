@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 
 // import add and filter form
 import FormAddMovie from "./FormAddMovie";
@@ -8,7 +8,6 @@ import FormFilter from "./FormFilter";
 import MovieCard from "./MovieCard";
 
 
-import { Routes, Route, useParams } from "react-router-dom";
 
 
 //import default movie list and added Movies list 
@@ -18,7 +17,6 @@ import AddedMovies from "./AddedMovies";
 
 
 
-import DesciptionTrailerShow from "./DesciptionTrailerShow";
 
 
 
@@ -289,15 +287,10 @@ const Show = () => {
                     <FormAddMovie Add={Add} />
                 </div>
             </div>
-            <Routes>
-                {/* <Route path="/show"> */}
-                <Route path="/show/movie1"
-                    element={<DesciptionTrailerShow
-                        posterUrl="/AvengersPoster.jpg"
-                        trailerUrl="https://youtu.be/6ZfuNTqbHE8"
-                        description="dekedked" />} />
-                {/* </Route> */}
-            </Routes>
+
+            {/* <Outlet /> */}
+
+
 
 
         </>
