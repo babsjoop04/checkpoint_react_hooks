@@ -1,6 +1,4 @@
-
 const FormAddMovie = ({ Add }) => {
-
     return (
         <>
             {/* form add new movie */}
@@ -27,6 +25,16 @@ const FormAddMovie = ({ Add }) => {
                     id="posterUrl"
                     placeholder="Give the movie poster "
                     className="form-control"
+                />
+                <br />
+                <label htmlFor="trailerUrl">
+                    Url trailer :
+                </label>
+                <input
+                    type="text"
+                    className="form-control"
+                    id="trailerUrl"
+                    placeholder="Give the link to the trailer"
                 />
                 <br />
                 <label htmlFor="rate">Rate (0-100)</label>&nbsp;
