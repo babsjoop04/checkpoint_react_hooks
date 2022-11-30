@@ -13,7 +13,7 @@ import MovieCard from "./MovieCard";
 //import default movie list and added Movies list 
 
 import DefaultMovieList from "./DefaultMovieList";
-import AddedMovies from "./AddedMovies";
+// import AddedMovies from "./AddedMovies";
 
 
 
