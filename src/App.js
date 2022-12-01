@@ -1,5 +1,8 @@
 import { useMemo, useState } from "react";
 
+
+import ShowDesciptionTrailer from "./component/ShowDescriptionTrailer";
+
 // import add and filter form
 import FormAddMovie from "./component/FormAddMovie";
 import FormFilter from "./component/FormFilter";
@@ -12,10 +15,12 @@ import MovieCard from "./component/MovieCard";
 
 
 
+
+
 //import default movie list
 
 import DefaultMovieList from "./component/DefaultMovieList";
-import { Routes } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 
 
@@ -244,50 +249,55 @@ const App = () => {
   return (
 
     <>
+
+
+
+
       <Routes>
 
-        <Route path="/" element={ }></Route>
+        <Route index path="/" element={<>
+          <div className="container  text-center" id="contprinc2">
+            <h1>Welcome</h1>
+
+
+            <div className="row">
+              <FormFilter Filter={Filter} />
+              <div className="">
+                <button className="btn btn-info" style={{ display: displaystate }} onClick={Show} id="buttonShow">Press here to show full movie list</button>
+              </div>
+
+            </div>
+            <br />
+            {/* <div className="row"> */}
+            <p className="text-bg-secondary">{message} : {counter}</p>
+
+            {/* </div> */}
+            <div className="row">
+
+              {movie}
+            </div>
+
+          </div>
+
+
+
+
+          <div className="container mt-5 text-center" id="contprinc1">
+            <div className="row" id="add">
+              <FormAddMovie Add={Add} />
+            </div>
+          </div>
+
+
+
+
+        </>} />
+        <Route path="/movie:id" />
 
       </Routes>
 
 
-        <>
-      <div className="container  text-center" id="contprinc2">
-        <h1>Welcome</h1>
 
-
-          <div className="row">
-            <FormFilter Filter={Filter} />
-            <div className="">
-              <button className="btn btn-info" style={{ display: displaystate }} onClick={Show} id="buttonShow">Press here to show full movie list</button>
-            </div>
-
-          </div>
-          <br />
-          {/* <div className="row"> */}
-          <p className="text-bg-secondary">{message} : {counter}</p>
-
-          {/* </div> */}
-          <div className="row">
-
-            {movie}
-          </div>
-
-        </div>
-
-
-
-
-        <div className="container mt-5 text-center" id="contprinc1">
-          <div className="row" id="add">
-            <FormAddMovie Add={Add} />
-          </div>
-        </div>
-
-
-
-
-      </>
     </>
 
   );
