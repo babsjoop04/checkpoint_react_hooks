@@ -1,7 +1,8 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 
 
-import ShowDesciptionTrailer from "./component/ShowDescriptionTrailer";
+
+
 
 // import add and filter form
 import FormAddMovie from "./component/FormAddMovie";
@@ -11,7 +12,8 @@ import FormFilter from "./component/FormFilter";
 import MovieCard from "./component/MovieCard";
 
 
-
+// import display component trailer and description
+import DesciptionTrailerShow from "./component/DesciptionTrailerShow";
 
 
 
@@ -20,6 +22,9 @@ import MovieCard from "./component/MovieCard";
 //import default movie list
 
 import DefaultMovieList from "./component/DefaultMovieList";
+
+
+
 import { Routes, Route } from "react-router-dom";
 
 
@@ -30,38 +35,41 @@ import { Routes, Route } from "react-router-dom";
 
 
 
-// creation table for new movie storage
+// creation of a table for the storage of new films and 
+// its definition in the form of a map
 
-let list2 = [];
+let list2 = [], list2Card = [];
+
+
+
+// create default movie list cards
+
+let list1 = DefaultMovieList.map((element) => {
+  return (
+    <MovieCard
+      title={element.title}
+      id={element.id}
+      description={element.description}
+      posterUrl={element.posterUrl}
+      rate={element.rate}
+    />
+  );
+})
 
 
 const App = () => {
 
 
-  // create default movie map board
 
 
-  let list1 = useMemo(() => {
-    return DefaultMovieList.map((element) => {
-      return (
-        <MovieCard
-          title={element.title}
-          description={element.description}
-          posterUrl={element.posterUrl}
-          rate={element.rate}
-        />
-      );
-    })
-  }, []);
 
 
   // creation and initialization table for movie
 
-
   //and state variable for display it
 
 
-  const [movie, addMovie] = useState([...list1]);
+  const [movie, addMovie] = useState([...list1, ...list2Card]);
 
 
 
@@ -71,7 +79,7 @@ const App = () => {
   const [message, setMessage] = useState("Number of movies")
 
   // and to count the number of films
-  const [counter, setCounter] = useState([...list1].length)
+  const [counter, setCounter] = useState([...list1, ...list2Card].length)
 
 
 
@@ -104,31 +112,48 @@ const App = () => {
 
     const posterUrl = document.getElementById("posterUrl").value;
 
+    const trailerUrl = document.getElementById("trailerUrl").value;
+
+
     const rate = parseInt(document.getElementById("rate").value);
 
     const description = document.getElementById("description").value;
 
-
-
-    // added new movie to the list
-    list2.push(
-      <MovieCard
-        title={title || "unknown"}
-        description={description || "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos magnam exercitationem odio tempore totam saepe ratione numquam pariatur minus dolorem facilis eum soluta ad, aliquid explicabo amet laboriosam. Fugit, unde."}
-        posterUrl={posterUrl || "/defaultPoster.jpg"}
-        rate={rate || 50}
-      />
-    );
+    if (title !== "" && trailerUrl !== "" && rate !== "" && description !== "") {
 
 
 
-    // update list for display
+      // added a new movie to the list and its map
 
-    addMovie([...list1, ...list2]);
 
-    //update the counter of movie
 
-    setCounter([...list1, ...list2].length)
+      list2.push({ title: title, id: list2.length + 21, rate: rate, posterUrl: posterUrl, trailerUrl: trailerUrl, description: description })
+
+
+
+      list2Card.push(
+        <MovieCard
+          title={title}
+          id={list2.length + 20}
+          description={description}
+          posterUrl={posterUrl || "/defaultPoster.jpg"}
+          trailerUrl={trailerUrl}
+          rate={rate}
+        />
+      );
+
+
+
+      // update list for display
+
+      addMovie([...list1, ...list2Card]);
+
+      //update the counter of movie
+
+      setCounter([...list1, ...list2Card].length)
+    } else
+      alert("Please complete this form!!!")
+
   };
 
 
@@ -155,7 +180,7 @@ const App = () => {
 
       if (titleOrRate.length !== 0) {
 
-        tab2 = [...list1, ...list2].filter((element) => {
+        tab2 = [...list1, ...list2Card].filter((element) => {
           return element.props.title.toLowerCase().includes(titleOrRate.toLowerCase())
         })
 
@@ -187,7 +212,7 @@ const App = () => {
       if (titleOrRate !== "") {
 
         if (parseInt(titleOrRate) >= 0 && parseInt(titleOrRate) <= 100) {
-          tab2 = [...list1, ...list2].filter((element) => {
+          tab2 = [...list1, ...list2Card].filter((element) => {
             return element.props.rate === parseInt(titleOrRate)
           })
 
@@ -228,13 +253,13 @@ const App = () => {
   const Show = () => {
 
 
-    addMovie([...list1, ...list2])
+    addMovie([...list1, ...list2Card])
 
     setDisplay("none")
 
     setMessage("Number of movies")
 
-    setCounter([...list1, ...list2].length)
+    setCounter([...list1, ...list2Card].length)
 
 
 
@@ -268,10 +293,8 @@ const App = () => {
 
             </div>
             <br />
-            {/* <div className="row"> */}
             <p className="text-bg-secondary">{message} : {counter}</p>
 
-            {/* </div> */}
             <div className="row">
 
               {movie}
@@ -287,12 +310,15 @@ const App = () => {
               <FormAddMovie Add={Add} />
             </div>
           </div>
-
-
-
-
         </>} />
-        <Route path="/movie:id" />
+
+
+
+
+        <Route path="/movie:id" element={<DesciptionTrailerShow
+          arr={[...DefaultMovieList, ...list2]}
+        />} />
+
 
       </Routes>
 

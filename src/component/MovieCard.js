@@ -1,8 +1,6 @@
 
 import PropTypes from "prop-types";
-import { Link, Routes, Route } from "react-router-dom";
 
-import DesciptionTrailerShow from "./DesciptionTrailerShow";
 
 import { useNavigate } from "react-router-dom";
 
@@ -34,14 +32,13 @@ const MovieCard = ({ title, id, description, posterUrl, rate }) => {
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col">
-                            <p>
-                                {description.slice(0, 40) + "..."}
-                                <button onClick={() => changeUrl(`/show/movie${id}`)} className="bg-warning">click here to see more</button>
-                            </p>
+                        <p>
+
+                            Description : {description.slice(0, 40) + "..."}
+                            <button onClick={() => changeUrl(`/movie${id}`)} className="btn btn-info">click here to see more</button>
+                        </p>
 
 
-                        </div>
 
                     </div>
 
@@ -50,7 +47,7 @@ const MovieCard = ({ title, id, description, posterUrl, rate }) => {
             </div>
 
 
-        </div >
+        </div>
     );
 };
 
