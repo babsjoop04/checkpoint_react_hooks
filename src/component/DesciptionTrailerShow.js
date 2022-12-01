@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import DefaultMovieList from "./DefaultMovieList";
-import AddedMovies from "./AddedMovies";
+
+
+
+
 const DesciptionTrailerShow = () => {
 
     const changeUrl = useNavigate()
@@ -18,7 +21,7 @@ const DesciptionTrailerShow = () => {
         <div className="container" id="contprinc3">
             <div div className="row" >
                 <div className="col">
-                    <img src={[...DefaultMovieList, ...AddedMovies][id - 1].posterUrl} alt="Movie poster" className="img-thumbnail img-fluid" />
+                    <img src={[...DefaultMovieList][id - 1].posterUrl} alt="Movie poster" className="img-thumbnail img-fluid" />
                 </div>
                 <div className="col">
                     <div className="row">
@@ -27,7 +30,7 @@ const DesciptionTrailerShow = () => {
                     </div>
                     <div className="row">
                         <h1>Link to trailer :</h1>
-                        <span className="h3">{[...DefaultMovieList, ...AddedMovies][id - 1].trailerUrl}</span>
+                        <span className="h3">{[...DefaultMovieList][id - 1].trailerUrl}</span>
                     </div>
 
                     <div className="row">

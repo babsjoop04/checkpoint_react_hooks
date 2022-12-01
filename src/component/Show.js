@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 
 // import add and filter form
 import FormAddMovie from "./FormAddMovie";
@@ -19,6 +19,22 @@ import DefaultMovieList from "./DefaultMovieList";
 
 
 
+let list2 = [], list2Card = []
+
+let list1 = DefaultMovieList.map((element) => {
+    return (
+        <MovieCard
+            title={element.title}
+            id={element.id}
+            trailerUrl={element.trailerUrl}
+            description={element.description}
+            posterUrl={element.posterUrl}
+            rate={element.rate}
+        />
+    );
+})
+
+
 
 
 
@@ -34,20 +50,6 @@ const Show = () => {
     // create default movie map board
 
 
-    let list1 = useMemo(() => {
-        return DefaultMovieList.map((element) => {
-            return (
-                <MovieCard
-                    title={element.title}
-                    id={element.id}
-                    trailerUrl={element.trailerUrl}
-                    description={element.description}
-                    posterUrl={element.posterUrl}
-                    rate={element.rate}
-                />
-            );
-        })
-    }, []);
 
 
 
@@ -57,7 +59,7 @@ const Show = () => {
     //and state variable for display it
 
 
-    const [movie, addMovie] = useState([...list1]);
+    const [movie, addMovie] = useState([...list1, ...list2Card]);
 
 
 
@@ -111,11 +113,13 @@ const Show = () => {
 
 
         if (title !== "" && rate !== "" && description !== "" && trailerUrl !== "") {
+
+            list2.push({ title: title, id: 21 + list2.length, trailerUrl: trailerUrl, description: description, posterUrl: posterUrl, rate: rate })
             // added new movie to the list
-            AddedMovies.push(
+            list2Card.push(
                 <MovieCard
                     title={title}
-                    id={21 + AddedMovies.length}
+                    id={21 + list2Card.length}
                     trailerUrl={trailerUrl}
 
                     description={description}
@@ -134,11 +138,11 @@ const Show = () => {
 
             // update list for display
 
-            addMovie([...list1, ...AddedMovies]);
+            addMovie([...list1, ...list2Card]);
 
             //update the counter of movie
 
-            setCounter([...list1, ...AddedMovies].length)
+            setCounter([...list1, ...list2Card].length)
         } else
             alert("Please complete this form!!")
     }
@@ -167,7 +171,7 @@ const Show = () => {
 
             if (titleOrRate.length !== 0) {
 
-                tab2 = [...list1, ...AddedMovies].filter((element) => {
+                tab2 = [...list1, ...list2Card].filter((element) => {
                     return element.props.title.toLowerCase().includes(titleOrRate.toLowerCase())
                 })
 
@@ -201,7 +205,7 @@ const Show = () => {
             if (titleOrRate !== "") {
 
                 if (parseInt(titleOrRate) >= 0 && parseInt(titleOrRate) <= 100) {
-                    tab2 = [...list1, ...AddedMovies].filter((element) => {
+                    tab2 = [...list1, ...list2Card].filter((element) => {
                         return element.props.rate === parseInt(titleOrRate)
                     })
 
@@ -242,13 +246,13 @@ const Show = () => {
     const ShowFullMovie = () => {
 
 
-        addMovie([...list1, ...AddedMovies])
+        addMovie([...list1, ...list2Card])
 
         setDisplay("none")
 
         setMessage("Number of movies")
 
-        setCounter([...list1, ...AddedMovies].length)
+        setCounter([...list1, ...list2Card].length)
 
 
 
