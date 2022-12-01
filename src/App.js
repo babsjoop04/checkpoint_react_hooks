@@ -1,28 +1,8 @@
 import { useMemo, useState } from "react";
-
-// import add and filter form
 import FormAddMovie from "./component/FormAddMovie";
 import FormFilter from "./component/FormFilter";
-
-//import component defining a movie as a map
 import MovieCard from "./component/MovieCard";
-
-
-
-
-
-
-//import default movie list
-
 import DefaultMovieList from "./component/DefaultMovieList";
-
-
-
-
-
-
-
-
 
 // creation table for new movie storage
 
