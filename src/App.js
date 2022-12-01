@@ -44,6 +44,10 @@ let list2 = [], list2Card = [];
 
 // create default movie list cards
 
+/*
+
+!  remplacer par carddefaultmovieList
+
 let list1 = DefaultMovieList.map((element) => {
   return (
     <MovieCard
@@ -56,6 +60,7 @@ let list1 = DefaultMovieList.map((element) => {
   );
 })
 
+*/
 
 const App = () => {
 
@@ -99,7 +104,8 @@ const App = () => {
 
 
 
-
+/*
+! partie deplacée dans formAddMovie
 
 
   //fucntion add new movie
@@ -156,94 +162,98 @@ const App = () => {
 
   };
 
+  */
 
-
-  //function filtring
-  const Filter = () => {
-
-
-    //get filter value for list
-    let titleOrRate = document.getElementById("filterMode").value
-
-    //creation of a table to store the filtered list
-
-    let tab2 = []
-
-
-    //filter mode recovery,
-    // filtering and updating the list for display
-
-    let tab = document.getElementsByClassName("filterModeinput")
-
-
-    if (tab[0].checked) {
-
-      if (titleOrRate.length !== 0) {
-
-        tab2 = [...list1, ...list2Card].filter((element) => {
-          return element.props.title.toLowerCase().includes(titleOrRate.toLowerCase())
-        })
-
-
-
-        // display of the filtered list
-
-        addMovie([...tab2])
-
-
-
-        //update message and counter
-
-        setMessage("movies found by filtering")
-        setCounter(tab2.length)
-
-
-
-        setDisplay("inline")
-
-      } else
-        alert("Please give a movie title!!")
-
-
-
-
-    } else if (tab[1].checked) {
-
-      if (titleOrRate !== "") {
-
-        if (parseInt(titleOrRate) >= 0 && parseInt(titleOrRate) <= 100) {
+  /*
+  ! partie deplacée dans formFilter
+  
+    //function filtring
+    const Filter = () => {
+  
+  
+      //get filter value for list
+      let titleOrRate = document.getElementById("filterMode").value
+  
+      //creation of a table to store the filtered list
+  
+      let tab2 = []
+  
+  
+      //filter mode recovery,
+      // filtering and updating the list for display
+  
+      let tab = document.getElementsByClassName("filterModeinput")
+  
+  
+      if (tab[0].checked) {
+  
+        if (titleOrRate.length !== 0) {
+  
           tab2 = [...list1, ...list2Card].filter((element) => {
-            return element.props.rate === parseInt(titleOrRate)
+            return element.props.title.toLowerCase().includes(titleOrRate.toLowerCase())
           })
-
-
-
-
-
+  
+  
+  
+          // display of the filtered list
+  
           addMovie([...tab2])
-
+  
+  
+  
+          //update message and counter
+  
           setMessage("movies found by filtering")
           setCounter(tab2.length)
-
-
-
-
+  
+  
+  
           setDisplay("inline")
-        }
-        else
-          alert("The rating must de between 0 and 100")
+  
+        } else
+          alert("Please give a movie title!!")
+  
+  
+  
+  
+      } else if (tab[1].checked) {
+  
+        if (titleOrRate !== "") {
+  
+          if (parseInt(titleOrRate) >= 0 && parseInt(titleOrRate) <= 100) {
+            tab2 = [...list1, ...list2Card].filter((element) => {
+              return element.props.rate === parseInt(titleOrRate)
+            })
+  
+  
+  
+  
+  
+            addMovie([...tab2])
+  
+            setMessage("movies found by filtering")
+            setCounter(tab2.length)
+  
+  
+  
+  
+            setDisplay("inline")
+          }
+          else
+            alert("The rating must de between 0 and 100")
+        } else
+          alert("Please give a rating (number [0,100]) !!")
+  
+  
+  
+  
       } else
-        alert("Please give a rating (number [0,100]) !!")
-
-
-
-
-    } else
-      alert("Please select a filter mode !!!")
-
-
-
-  };
+        alert("Please select a filter mode !!!")
+  
+  
+  
+    };
+    */
 
 
 
@@ -281,6 +291,11 @@ const App = () => {
       <Routes>
 
         <Route index path="/" element={<>
+          {/* 
+
+        partie deplacée dans MovieList
+
+         */}
           <div className="container  text-center" id="contprinc2">
             <h1>Welcome</h1>
 

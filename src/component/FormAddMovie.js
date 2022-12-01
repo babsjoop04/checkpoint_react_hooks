@@ -1,4 +1,63 @@
-const FormAddMovie = ({ Add }) => {
+import MovieCard from "./MovieCard";
+
+
+
+
+const FormAddMovie = ({ addMovie }) => {
+
+
+    const Add = (arr1, arr2) => {
+
+
+        // collection and storage of data entered
+        const title = document.getElementById("title").value;
+
+        const posterUrl = document.getElementById("posterUrl").value;
+
+        const trailerUrl = document.getElementById("trailerUrl").value;
+
+
+        const rate = parseInt(document.getElementById("rate").value);
+
+        const description = document.getElementById("description").value;
+
+        if (title !== "" && trailerUrl !== "" && rate !== "" && description !== "") {
+
+
+
+            // added a new movie to the list and its map
+
+
+
+            arr1.push({ title: title, id: list2.length + 21, rate: rate, posterUrl: posterUrl, trailerUrl: trailerUrl, description: description })
+
+
+
+            arr2.push(
+                <MovieCard
+                    title={title}
+                    id={list2.length + 20}
+                    description={description}
+                    posterUrl={posterUrl || "/defaultPoster.jpg"}
+                    trailerUrl={trailerUrl}
+                    rate={rate}
+                />
+            );
+
+
+
+            // update list for display
+
+            addMovie([...list1, ...list2Card]);
+
+            //update the counter of movie
+
+            setCounter([...list1, ...list2Card].length)
+        } else
+            alert("Please complete this form!!!")
+
+    };
+
     return (
         <>
             {/* form add new movie */}
