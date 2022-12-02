@@ -2,7 +2,7 @@
 import FormAddMovie from "./FormAddMovie";
 import FormFilter from "./FormFilter";
 import { useState } from "react";
-import CardDefaultMovieList from "../CardDefaultMovieList";
+import CardDefaultMovieList from "./component/CardDefaultMovieList";
 import FormAddMovie from "./component/FormAddMovie";
 import FormFilter from "./component/FormFilter";
 
@@ -23,19 +23,19 @@ const MovieList = () => {
     const [movie, addMovie] = useState([...CardDefaultMovieList, ...list2Card]);
 
 
-    
+
     // and to count the number of films
     const [counter, setCounter] = useState([...CardDefaultMovieList, ...list2Card].length)
-    
-    
-    
-    
-    
+
+
+
+
+
     //creation of state variable for display or not of #buttonShow
-    
+
     const [displaystate, setDisplay] = useState("none")
-    
-    
+
+
     // definition of state variable used 
     // to display a message 
 
@@ -47,7 +47,7 @@ const MovieList = () => {
 
 
 
-    
+
 
     return (
         <>
@@ -67,7 +67,7 @@ const MovieList = () => {
             </div>
             <div className="container mt-5 text-center" id="contprinc1">
                 <div className="row" id="add">
-                    <FormAddMovie addMovie={addMovie} />
+                    <FormAddMovie addMovie={addMovie} arr1={list2} arr2={list2Card} />
                 </div>
             </div>
         </>

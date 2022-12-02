@@ -1,5 +1,5 @@
-import DefaultMovieList from "./component/DefaultMovieList";
-import MovieCard from "./component/MovieCard";
+import DefaultMovieList from "./DefaultMovieList";
+import MovieCard from "./MovieCard";
 
 
 

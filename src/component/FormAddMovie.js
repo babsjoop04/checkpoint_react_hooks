@@ -3,10 +3,10 @@ import MovieCard from "./MovieCard";
 
 
 
-const FormAddMovie = ({ addMovie }) => {
+const FormAddMovie = ({ addMovie, arr1, arr2 }) => {
 
 
-    const Add = (arr1, arr2) => {
+    const Add = () => {
 
 
         // collection and storage of data entered
