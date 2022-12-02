@@ -1,58 +1,42 @@
 import MovieCard from "./MovieCard";
+import CardDefaultMovieList from "./CardDefaultMovieList";
 
 
 
 
-const FormAddMovie = ({ addMovie, arr1, arr2 }) => {
+const FormAddMovie = ({ addMovie, setCounter, AddedMovies, AddedMoviesCard }) => {
 
 
     const Add = () => {
 
-
         // collection and storage of data entered
         const title = document.getElementById("title").value;
-
         const posterUrl = document.getElementById("posterUrl").value;
-
         const trailerUrl = document.getElementById("trailerUrl").value;
-
-
         const rate = parseInt(document.getElementById("rate").value);
-
         const description = document.getElementById("description").value;
 
         if (title !== "" && trailerUrl !== "" && rate !== "" && description !== "") {
 
-
-
             // added a new movie to the list and its map
 
+            AddedMovies.push({ title: title, id: AddedMovies.length + 21, rate: rate, posterUrl: posterUrl, trailerUrl: trailerUrl, description: description })
 
-
-            arr1.push({ title: title, id: list2.length + 21, rate: rate, posterUrl: posterUrl, trailerUrl: trailerUrl, description: description })
-
-
-
-            arr2.push(
+            AddedMoviesCard.push(
                 <MovieCard
                     title={title}
-                    id={list2.length + 20}
+                    id={AddedMovies.length + 20}
+                    key={AddedMovies.length + 20}
                     description={description}
                     posterUrl={posterUrl || "/defaultPoster.jpg"}
                     trailerUrl={trailerUrl}
-                    rate={rate}
-                />
+                    rate={rate} />
             );
 
-
-
             // update list for display
-
-            addMovie([...list1, ...list2Card]);
-
+            addMovie([...CardDefaultMovieList, ...AddedMoviesCard]);
             //update the counter of movie
-
-            setCounter([...list1, ...list2Card].length)
+            setCounter([...CardDefaultMovieList, ...AddedMoviesCard].length)
         } else
             alert("Please complete this form!!!")
 

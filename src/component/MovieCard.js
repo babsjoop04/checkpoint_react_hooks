@@ -6,10 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 const MovieCard = ({ title, id, description, posterUrl, rate }) => {
 
-
     const changeUrl = useNavigate()
-
-
 
     return (
         <div className="col-3" id={id}>
@@ -35,7 +32,7 @@ const MovieCard = ({ title, id, description, posterUrl, rate }) => {
                         <p>
 
                             Description : {description.slice(0, 40) + "..."}
-                            <button onClick={() => changeUrl(`/movie${id}`)} className="btn btn-info">click here to see more</button>
+                            <button onClick={() => changeUrl(`/movie/${id}`)} className="btn btn-info">click here to see more</button>
                         </p>
 
 

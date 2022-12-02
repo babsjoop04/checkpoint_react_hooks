@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-
+import DefaultMovieList from "./DefaultMovieList";
 
 
 
@@ -11,9 +11,7 @@ const DesciptionTrailerShow = ({ arr }) => {
 
     const params = useParams()
 
-    const [deb, setId] = useState(-1)
-
-
+    const [id, setId] = useState(-1)
 
 
     useEffect(() => {
@@ -22,28 +20,28 @@ const DesciptionTrailerShow = ({ arr }) => {
 
 
     return (
-        deb === -1 ?
+        id === -1 ?
             <div className="container text-center" id="contprinc3">
-                <button class="btn btn-primary">
-                    <span class="spinner-border spinner-border-sm"></span>
+                <button className="btn btn-primary">
+                    <span className="spinner-border spinner-border-sm"></span>
                     Loading..
                 </button>
             </div> :
             <div className="container text-center" id="contprinc3">
                 <div div className="row" >
                     <div className="col">
-                        <img src={arr[deb - 1].posterUrl} alt="Movie poster" className="img-thumbnail img-fluid" />
+                        <img src={[...DefaultMovieList, ...arr][id - 1].posterUrl} alt="Movie poster" className="img-thumbnail img-fluid" />
                     </div>
                     <div className="col">
                         <div className="row">
-                            <h1>{arr[deb - 1].title}</h1>
+                            <h1>{[...DefaultMovieList, ...arr][id - 1].title}</h1>
                             <span></span>
                             <h1>Description : </h1>
-                            <span className="h3">{arr[deb - 1].description}</span>
+                            <span className="h3">{[...DefaultMovieList, ...arr][id - 1].description}</span>
                         </div>
                         <div className="row">
                             <h1>Link to trailer :</h1>
-                            <span className="h3">{arr[deb - 1].trailerUrl}</span>
+                            <span className="h3">{[...DefaultMovieList, ...arr][id - 1].trailerUrl}</span>
                         </div>
 
                         <div className="row">
@@ -51,11 +49,8 @@ const DesciptionTrailerShow = ({ arr }) => {
                                 <button className="btn btn-info">click here to go back</button>
                             </div>
                         </div>
-
                     </div>
                 </div>
-
-
             </div>
     );
 };
