@@ -45,8 +45,8 @@ const DesciptionTrailerShow = ({ arr }) => {
                         </div>
 
                         <div className="row">
-                            <div className="col" onClick={() => changeUrl("/")}>
-                                <button className="btn btn-info">click here to go back</button>
+                            <div className="col" >
+                                <button className="btn btn-info" onClick={() => changeUrl("/")}>click here to go back</button>
                             </div>
                         </div>
                     </div>
